@@ -72,7 +72,13 @@
 
     <entity-facade query-stats="true">
         <!-- add datasource elements here to configure databases -->
-    </entity-facade>
+ 		<datasource group-name="transactional" database-conf-name="mysql" schema-name="">
+			<inline-jdbc pool-minsize="5" pool-maxsize="50">
+			<xa-properties user="root" password="start" pinGlobalTxToPhysicalConnection="true"
+                serverName="localhost" port="3306" databaseName="moqui2_prod_test" autoReconnectForPools="true"
+                useUnicode="true" encoding="UTF-8" useSSL="false" />
+			</inline-jdbc>
+		</datasource>   </entity-facade>
 
     <repository-list>
         <!-- requires 'org.apache.jackrabbit:jackrabbit-jcr-rmi' in the classpath:
